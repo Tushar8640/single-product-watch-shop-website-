@@ -16,15 +16,18 @@ firebaseAuthentication();
 const useFirebase = () => {
   const [user, setUser] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [admin, setAdmin] = useState(false);
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
 
   const loginWithGoogle = (location, history) => {
-    setIsLoading(true)
+    setIsLoading(true);
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         setUser(result.user);
+        const user = result.user;
+        sendUsers(user.email, user.displayName, 'PUT');
         const destination = location?.state?.from || "/";
         history.replace(destination);
         // ...
@@ -42,6 +45,7 @@ const useFirebase = () => {
         const newUser = { email, displayName: name };
         setUser(newUser);
         // update name after registrationn
+        sendUsers(email, name, "POST");
         updateProfile(auth.currentUser, {
           displayName: name,
         })
@@ -83,6 +87,24 @@ const useFirebase = () => {
   };
 
   useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+        .then(res => res.json())
+        .then(data => setAdmin(data.admin))
+}, [user.email])
+
+  // send users to database
+  const sendUsers = (email, displayName, method) => {
+    const data = { email, displayName };
+    fetch("http://localhost:5000/users", {
+      method: method,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  };
+
+  useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
@@ -90,7 +112,7 @@ const useFirebase = () => {
       } else {
         console.log("user not found");
       }
-      setIsLoading(false)
+      setIsLoading(false);
     });
   }, [auth]);
 
@@ -100,7 +122,8 @@ const useFirebase = () => {
     registerUser,
     logOut,
     emailPassLogin,
-    isLoading
+    isLoading,
+    admin
   };
 };
 

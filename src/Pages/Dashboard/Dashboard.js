@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Switch, Route, Link, useRouteMatch, NavLink,useHistory } from "react-router-dom";
+import {
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  NavLink,
+  useHistory,
+} from "react-router-dom";
+import AdminRoute from "../../AdminRoute/AdminRoute";
 import useAuth from "../../Hooks/useAuth";
 import useFirebase from "../../Hooks/useFirebase";
 import ExploreMore from "../ExploreMore/ExploreMore";
@@ -7,20 +15,22 @@ import AddProducts from "./AddProducts/AddProducts";
 import AllOrder from "./AllOrder/AllOrder";
 import MakeAdmin from "./MakeAdmin/MakeAdmin";
 import ManageAllOrder from "./ManageAllOrder/ManageAllOrder";
+import ManageAllProducts from "./ManageAllProducts/ManageAllProducts";
 import Payment from "./Payment/Payment";
 import Review from "./Review/Review";
 
 const Dashboard = () => {
   const [isToggle, setIsToggle] = useState(false);
-  const history = useHistory()
+  const history = useHistory();
 
-  const { logOut } = useAuth();
+  const { logOut, admin } = useAuth();
   let { path, url } = useRouteMatch();
   const handleLogOut = () => {
     logOut();
     // history.push("/")
   };
 
+  console.log(admin);
   // sidebar toggle
 
   const handleTOggle = () => {
@@ -33,12 +43,10 @@ const Dashboard = () => {
         {/* dashboard navbar  */}
         <div
           className={`${
-            isToggle
-              ? "absolute top-0 left-0 z-20 bg-gray-50 shadow-lg h-screen "
-              : "hidden"
+            isToggle ? "absolute top-0 left-0 z-20  h-screen " : "hidden"
           } `}
         >
-          <div className="flex flex-col h-full p-3 w-60 bg-blue-300 text-blue-50 shadow-lg">
+          <div className="flex flex-col  p-3 w-60  text-blue-50 shadow-lg bg-blue-300 h-100">
             <div className=" w-10/12 my-8">
               <div className="flex items-center justify-between">
                 <h2 className="text-gray-700 text-xl font-bold">Dashboard</h2>
@@ -67,7 +75,7 @@ const Dashboard = () => {
               <div className="flex-1">
                 <ul
                   onClick={handleTOggle}
-                  className="pt-2 pb-4 space-y-1 text-sm"
+                  className="pt-2 pb-4  space-y-1 text-sm"
                 >
                   <li className="">
                     <NavLink
@@ -102,42 +110,58 @@ const Dashboard = () => {
                       <span>Payment</span>
                     </NavLink>
                   </li>
-                  <li className="rounded-sm">
-                    <NavLink
-                      activeStyle={{
-                        boxShadow: "1px 5px 10px rgba(20,10,10,0.1)",
-                        borderRadius: "5px",
-                      }}
-                      to={`${url}/manageorder`}
-                      className="flex  items-center p-2 "
-                    >
-                      <span>Manage Orders</span>
-                    </NavLink>
-                  </li>
-                  <li className="rounded-sm">
-                    <NavLink
-                      activeStyle={{
-                        boxShadow: "1px 5px 10px rgba(20,10,10,0.1)",
-                        borderRadius: "5px",
-                      }}
-                      to={`${url}/makeadmin`}
-                      className="flex  items-center p-2 "
-                    >
-                      <span>Make Admin</span>
-                    </NavLink>
-                  </li>
-                  <li className="rounded-sm">
-                    <NavLink
-                      activeStyle={{
-                        boxShadow: "1px 5px 10px rgba(20,10,10,0.1)",
-                        borderRadius: "5px",
-                      }}
-                      to={`${url}/addproducts`}
-                      className="flex  items-center p-2 "
-                    >
-                      <span>Add Products</span>
-                    </NavLink>
-                  </li>
+                  {admin && (
+                    <>
+                      <li className="rounded-sm">
+                        <NavLink
+                          activeStyle={{
+                            boxShadow: "1px 5px 10px rgba(20,10,10,0.1)",
+                            borderRadius: "5px",
+                          }}
+                          to={`${url}/manageorder`}
+                          className="flex  items-center p-2 "
+                        >
+                          <span>Manage Orders</span>
+                        </NavLink>
+                      </li>
+                      <li className="rounded-sm">
+                        <NavLink
+                          activeStyle={{
+                            boxShadow: "1px 5px 10px rgba(20,10,10,0.1)",
+                            borderRadius: "5px",
+                          }}
+                          to={`${url}/makeadmin`}
+                          className="flex  items-center p-2 "
+                        >
+                          <span>Make Admin</span>
+                        </NavLink>
+                      </li>
+                      <li className="rounded-sm">
+                        <NavLink
+                          activeStyle={{
+                            boxShadow: "1px 5px 10px rgba(20,10,10,0.1)",
+                            borderRadius: "5px",
+                          }}
+                          to={`${url}/addproducts`}
+                          className="flex  items-center p-2 "
+                        >
+                          <span>Add Products</span>
+                        </NavLink>
+                      </li>
+                      <li className="rounded-sm">
+                        <NavLink
+                          activeStyle={{
+                            boxShadow: "1px 5px 10px rgba(20,10,10,0.1)",
+                            borderRadius: "5px",
+                          }}
+                          to={`${url}/manageproduct`}
+                          className="flex  items-center p-2 "
+                        >
+                          <span>Manage Products</span>
+                        </NavLink>
+                      </li>
+                    </>
+                  )}
                   <li className="rounded-sm">
                     <NavLink
                       activeStyle={{
@@ -195,15 +219,18 @@ const Dashboard = () => {
             <Route exact path={`${path}/payment`}>
               <Payment></Payment>
             </Route>
-            <Route exact path={`${path}/manageorder`}>
+            <AdminRoute exact path={`${path}/manageorder`}>
               <ManageAllOrder></ManageAllOrder>
-            </Route>
-            <Route exact path={`${path}/makeadmin`}>
+            </AdminRoute>
+            <AdminRoute exact path={`${path}/makeadmin`}>
               <MakeAdmin></MakeAdmin>
-            </Route>
-            <Route exact path={`${path}/addproducts`}>
+            </AdminRoute>
+            <AdminRoute exact path={`${path}/addproducts`}>
               <AddProducts></AddProducts>
-            </Route>
+            </AdminRoute>
+            <AdminRoute exact path={`${path}/manageproduct`}>
+              <ManageAllProducts></ManageAllProducts>
+            </AdminRoute>
           </Switch>
         </div>
       </div>
