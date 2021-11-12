@@ -8,11 +8,11 @@ const ProductsCard = ({products}) => {
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center ">
         {products?.map((pd) => (
-          <div key={pd._id} className="max-w-xs rounded-md shadow-md bg-coolGray-50 text-coolGray-800 my-3">
+          <div key={pd._id} className="w-4/5 rounded-md shadow-md bg-coolGray-50 text-coolGray-800 my-3">
             <img
               src={pd.picture}
               alt=""
-              className="object-cover object-center w-full rounded-t-md h-72 bg-coolGray-500"
+              className="object-cover object-center w-full "
             />
             <div className="flex flex-col justify-between p-6 space-y-8">
               <div className="space-y-2">
@@ -25,7 +25,7 @@ const ProductsCard = ({products}) => {
               <Link to={`singleproducts/${pd._id}`}>
               <button
                 type="button"
-                className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-purple-600 text-purple-50"
+                className="flex items-center justify-center w-full font-semibold btn-regular hover:bg-blue-500 transition duration-200 focus:bg-blue-600 mt-3"
               >
                 Buy Item
               </button>

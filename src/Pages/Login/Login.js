@@ -33,9 +33,8 @@ const Login = () => {
     <>
       <Navigation></Navigation>
       <div className="container mx-auto ">
-        <h2 className="text-center">This is Login</h2>
         <div className="flex justify-items-center">
-          <div className="  w-2/6 mx-auto p-8 space-y-3 rounded-xl bg-coolGray-50 text-coolGray-800">
+          <div className="  w-5/6  md:w-7/12 mx-auto p-8 space-y-3 rounded-xl bg-coolGray-50 text-coolGray-800">
             <h1 className="text-2xl font-bold text-center">Login</h1>
             <form
               onSubmit={handleEmialPassLogin}
@@ -55,7 +54,7 @@ const Login = () => {
                   name="email"
                   id="username"
                   placeholder="Your Email"
-                  className="w-full px-4 py-3 rounded-md border-coolGray-300 bg-coolGray-50 text-coolGray-800"
+                  className="w-full px-4 py-5 rounded-md border-coolGray-300 bg-coolGray-50 text-coolGray-800"
                 />
               </div>
               <div className="space-y-1 text-sm">
@@ -70,31 +69,25 @@ const Login = () => {
                   name="password"
                   id="password"
                   placeholder="Your Password"
-                  className="w-full px-4 py-3 rounded-md border-coolGray-300 bg-coolGray-50 text-coolGray-800"
+                  className="w-full px-4 py-5 rounded-md border-coolGray-300 bg-coolGray-50 text-coolGray-800"
                 />
               </div>
-              <button
-                type="submit"
-                className="block bg-purple-500 text-purple-100 w-full p-3 text-center rounded-sm text-coolGray-50 bg-violet-600"
-              >
+              <button type="submit" className="btn-regular w-full">
                 Sign in
               </button>
             </form>
-            <div className="flex items-center pt-4 space-x-1">
-              <div className="flex-1 h-px sm:w-16 bg-coolGray-300"></div>
-              <p className="px-3 text-sm text-coolGray-600">
-                Login with social accounts
-              </p>
-              <div className="flex-1 h-px sm:w-16 bg-coolGray-300"></div>
+            <div className="flex items-center py-2 ">
+              <div className=" bg-coolGray-300"></div>
+              <p className="text-sm">OR..Login with social accounts</p>
             </div>
-            <div className="flex justify-center space-x-4">
+            <div className="flex justify-center ">
               <button
                 onClick={handleGoogleLogin}
                 aria-label="Log in with Google"
                 className="w-full
                 items-center
                 block
-                px-10
+                lg:px-10
                 py-3.5
                 text-base
                 font-medium
@@ -109,6 +102,7 @@ const Login = () => {
                 focus:outline-none
                 focus:ring-2
                 focus:ring-offset-2
+                mb-2
                 focus:ring-gray-500"
               >
                 <div className="flex items-center justify-center">
@@ -125,7 +119,7 @@ const Login = () => {
             </div>
             <Link
               to="registration"
-              className=" text-center sm:px-6 text-coolGray-600"
+              className=" text-center sm:px-3 "
             >
               Don't have an account?
               <button className="underline p-1 text-coolGray-800">

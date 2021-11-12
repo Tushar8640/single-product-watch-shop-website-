@@ -31,9 +31,9 @@ const Registration = () => {
   };
   return (
     <div className="container mx-auto ">
-      <h2 className="text-center">This is Registration</h2>
+      
       <div className="flex justify-items-center">
-        <div className="  w-2/6 mx-auto p-8 space-y-3 rounded-xl bg-coolGray-50 text-coolGray-800">
+        <div className="  w-5/6 md:w-7/12 mx-auto p-8 space-y-3 rounded-xl bg-coolGray-50 text-coolGray-800">
           <h1 className="text-2xl font-bold text-center">Rregistration</h1>
           <form
             onSubmit={handleRegistraion}
@@ -50,7 +50,7 @@ const Registration = () => {
                 name="name"
                 id="username"
                 placeholder="Your Name"
-                className="w-full px-4 py-3 rounded-md border-coolGray-300 bg-coolGray-50 text-coolGray-800"
+                className="w-full px-4 py-5 rounded-md border-coolGray-300 bg-coolGray-50 text-coolGray-800"
               />
             </div>
             <div className="space-y-1 text-sm">
@@ -64,7 +64,7 @@ const Registration = () => {
                 name="email"
                 id="username"
                 placeholder="Your Email"
-                className="w-full px-4 py-3 rounded-md border-coolGray-300 bg-coolGray-50 text-coolGray-800"
+                className="w-full px-4 py-5 rounded-md border-coolGray-300 bg-coolGray-50 text-coolGray-800"
               />
             </div>
             <div className="space-y-1 text-sm">
@@ -83,7 +83,7 @@ const Registration = () => {
             </div>
             <button
               type="submit"
-              className="block bg-purple-500 text-purple-100 w-full p-3 text-center rounded-sm text-coolGray-50 bg-violet-600"
+              className="btn-regular w-full"
             >
               Sign Up
             </button>

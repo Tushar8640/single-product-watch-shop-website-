@@ -20,7 +20,7 @@ const AddProducts = () => {
   };
   return (
     <div className="h-full my-12">
-      <h1 className="purple-text text-center mb-4">Add Product</h1>
+      <h1 className="text-center text-4xl font-semibold my-7">Add Product</h1>
       <div className="w-2/3 h-full  mx-auto">
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* register your input into the hook by invoking the "register" function */}

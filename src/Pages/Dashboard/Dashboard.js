@@ -23,7 +23,7 @@ const Dashboard = () => {
   const [isToggle, setIsToggle] = useState(false);
   const history = useHistory();
 
-  const { logOut, admin } = useAuth();
+  const { logOut, admin, user } = useAuth();
   let { path, url } = useRouteMatch();
   const handleLogOut = () => {
     logOut();
@@ -39,24 +39,32 @@ const Dashboard = () => {
 
   return (
     <div className=" mx-auto bg-gray-100">
-      <div className="flex relative">
+      <div className="flex relative ">
         {/* dashboard navbar  */}
         <div
           className={`${
-            isToggle ? "absolute top-0 left-0 z-20  h-screen " : "hidden"
+            isToggle
+              ? "absolute lg:static top-0 left-0 z-20  h-screen "
+              : "hidden  lg:block"
           } `}
         >
-          <div className="flex flex-col  p-3 w-60  text-blue-50 shadow-lg bg-blue-300 h-100">
-            <div className=" w-10/12 my-8">
-              <div className="flex items-center justify-between">
-                <h2 className="text-gray-700 text-xl font-bold">Dashboard</h2>
-
+          <div className="flex flex-col  p-3 w-64  text-blue-50 shadow-lg bg-indigo-600 h-100">
+            <div className=" w-full my-3">
+              <div className=" flex justify-between items-center mb-4">
+                <div className="flex   items-center">
+                  <img
+                    className="w-1/6 bg-white p-1 rounded-full"
+                    src={"https://i.ibb.co/phBRQ88/user.png"}
+                    alt=""
+                  />
+                  <h1 className="text-lg font ml-2">{user.displayName}</h1>
+                </div>
                 <button
                   onClick={handleTOggle}
-                  className="p-2 bg-blue-400 rounded-full shadow"
+                  className="p-2 bg-white  text-gray-800 rounded lg:hidden shadow"
                 >
                   <svg
-                    className="w-6 h-6"
+                    className="w-5 h-5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -71,12 +79,10 @@ const Dashboard = () => {
                   </svg>
                 </button>
               </div>
-
+              <h2 className="text-white text-xl font-bold mb-3">Dashboard</h2>
+              <hr />
               <div className="flex-1">
-                <ul
-                  onClick={handleTOggle}
-                  className="pt-2 pb-4  space-y-1 text-sm"
-                >
+                <ul className="pt-2 pb-4  space-y-1 text-sm">
                   <li className="">
                     <NavLink
                       to={`${url}`}
@@ -162,6 +168,7 @@ const Dashboard = () => {
                       </li>
                     </>
                   )}
+                  <hr />
                   <li className="rounded-sm">
                     <NavLink
                       activeStyle={{
@@ -177,7 +184,7 @@ const Dashboard = () => {
                   <li className="rounded-sm ">
                     <button
                       onClick={handleLogOut}
-                      className="bg-blue-700 font-semibold px-3 py-1 rounded text-purple-50 mt-2"
+                      className="bg-white text-gray-800  font-semibold px-3 py-1 rounded   mt-2"
                     >
                       Log Out
                     </button>
@@ -191,7 +198,7 @@ const Dashboard = () => {
           {isToggle == false && (
             <button
               onClick={handleTOggle}
-              className="p-2  bg-blue-200  absolute top-0 left-0 rounded-full"
+              className="p-2 lg:hidden m-4 border-blue-700 border bg-white hover:bg-blue-500 hover:text-white transition duration-200 absolute top-0 left-0 rounded"
             >
               <svg
                 className="w-6 h-6"
@@ -209,29 +216,31 @@ const Dashboard = () => {
               </svg>
             </button>
           )}
-          <Switch>
-            <Route exact path={path}>
-              <AllOrder></AllOrder>
-            </Route>
-            <Route exact path={`${path}/review`}>
-              <Review></Review>
-            </Route>
-            <Route exact path={`${path}/payment`}>
-              <Payment></Payment>
-            </Route>
-            <AdminRoute exact path={`${path}/manageorder`}>
-              <ManageAllOrder></ManageAllOrder>
-            </AdminRoute>
-            <AdminRoute exact path={`${path}/makeadmin`}>
-              <MakeAdmin></MakeAdmin>
-            </AdminRoute>
-            <AdminRoute exact path={`${path}/addproducts`}>
-              <AddProducts></AddProducts>
-            </AdminRoute>
-            <AdminRoute exact path={`${path}/manageproduct`}>
-              <ManageAllProducts></ManageAllProducts>
-            </AdminRoute>
-          </Switch>
+          <div className="my-14">
+            <Switch>
+              <Route exact path={path}>
+                <AllOrder></AllOrder>
+              </Route>
+              <Route exact path={`${path}/review`}>
+                <Review></Review>
+              </Route>
+              <Route exact path={`${path}/payment`}>
+                <Payment></Payment>
+              </Route>
+              <AdminRoute exact path={`${path}/manageorder`}>
+                <ManageAllOrder></ManageAllOrder>
+              </AdminRoute>
+              <AdminRoute exact path={`${path}/makeadmin`}>
+                <MakeAdmin></MakeAdmin>
+              </AdminRoute>
+              <AdminRoute exact path={`${path}/addproducts`}>
+                <AddProducts></AddProducts>
+              </AdminRoute>
+              <AdminRoute exact path={`${path}/manageproduct`}>
+                <ManageAllProducts></ManageAllProducts>
+              </AdminRoute>
+            </Switch>
+          </div>
         </div>
       </div>
     </div>

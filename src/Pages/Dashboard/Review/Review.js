@@ -1,41 +1,79 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
 
 const Review = () => {
-  const [isToggle, setIsToggle] = useState(false);
+  const { user } = useAuth();
+  const [stars, setStars] = useState(null);
+  const [reviews, setReviews] = useState("");
 
-  const handleTOggle = () => {
-    setIsToggle(!isToggle);
+  const getStars = (e) => {
+    setStars(e.target.value);
+  };
+
+  const getReviews = (e) => {
+    setReviews(e.target.value);
+  };
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    const name = user?.displayName;
+    const data = { stars, reviews, name };
+    
+    fetch("http://localhost:5000/postreview", {
+      method: "POST",
+      crossDomain: true,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        alert("Thanks For Your Feedback");
+      });
+    console.log(data);
   };
   return (
-    <div>
-      <h1 className="text-center text-2xl">Review Page</h1>
-      <h1 className="text-2xl text-center">Toggle</h1>
-
-      <button
-        onClick={handleTOggle}
-        className="bg-gray-600 text-gray-50 px-3 py-1 m-4"
-      >
-        toggle button
-      </button>
-      <div className={`text-xl my-12 flex `}>
-        <div className={`${isToggle ? "w-1/3 bg-white" : "hidden"} `}>
-          <ul>
-            <li>Toggle content</li>
-            <li>Toggle content</li>
-            <li>Toggle content</li>
-            <li>Toggle content</li>
-            <li>Toggle content</li>
-          </ul>
+    <div className="flex flex-col mx-auto max-w-xl p-8 shadow-sm rounded-xl lg:p-12 bg-coolGray-50 text-coolGray-800">
+      <div className="flex flex-col  justify-center items-center w-full">
+        <h2 className="text-3xl font-semibold text-center">
+          Your opinion matters!
+        </h2>
+        <div className="flex flex-col items-center py-6 space-y-3">
+          <span className="text-center">How was your experience?</span>
         </div>
         <div className="w-full">
-          <ul>
-            <li>Main content</li>
-            <li>Main content</li>
-            <li>Main content</li>
-            <li>Main content</li>
-            <li>Main content</li>
-          </ul>
+          <form onSubmit={handleOnSubmit} className="flex flex-col ">
+            <input
+              placeholder="Your Ratings (0-5)"
+              className="p-4 rounded-md mb-3"
+              type="number"
+              max="5"
+              min="0"
+              onBlur={getStars}
+            />
+            <textarea
+              onBlur={getReviews}
+              rows="3"
+              placeholder="Message..."
+              className="p-4 rounded-md resize-none"
+              spellcheck="false"
+            ></textarea>
+            <button
+              type="submit"
+              className="btn-regular my-8 font-semibold rounded-md t"
+            >
+              Leave feedback
+            </button>
+          </form>
         </div>
+      </div>
+      <div className="flex items-center justify-center">
+        <Link to="/" className="text-sm text-coolGray-600">
+          Maybe later
+        </Link>
       </div>
     </div>
   );

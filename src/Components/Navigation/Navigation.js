@@ -13,10 +13,10 @@ const Navigation = () => {
 
   return (
     <div className="">
-      <div className="px-4 py-5 mx-auto shadow-sm sm:max-w-full md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div className="px-4 py-6 mx-auto shadow-sm sm:max-w-full md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
-          <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-            Company
+          <span className="ml-2 text-3xl  text-blue-500 font-bold tracking-wide text-gray-800 uppercase">
+            Watch
           </span>
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
@@ -47,7 +47,7 @@ const Navigation = () => {
             {!user.email && (
               <li>
                 <Link
-                  className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400 bg-purple-500 px-3 py-1 rounded text-purple-50"
+                  className="btn-small hover:bg-blue-500 transition duration-200 focus:bg-blue-600 mt-3"
                   to="/login"
                 >
                   Login
@@ -63,7 +63,7 @@ const Navigation = () => {
               <li>
                 <button
                   onClick={handleLogOut}
-                  className="bg-purple-500 px-3 py-1 rounded text-purple-50"
+                  className="btn-small hover:bg-blue-500 transition duration-200 focus:bg-blue-600"
                 >
                   Log Out
                 </button>
@@ -148,7 +148,7 @@ const Navigation = () => {
                         <li>
                           <Link
                             to="/login"
-                            className="bg-purple-500 px-3 py-1 rounded text-purple-50"
+                            className="btn-small hover:bg-blue-500 transition duration-200 focus:bg-blue-600 mt-3"
                           >
                             Login
                           </Link>
@@ -164,7 +164,7 @@ const Navigation = () => {
                         <li>
                           <button
                             onClick={handleLogOut}
-                            className="bg-purple-500 px-3 py-1 rounded text-purple-50"
+                            className="btn-small hover:bg-blue-500 transition duration-200 focus:bg-blue-600 mt-3"
                           >
                             Log Out
                           </button>

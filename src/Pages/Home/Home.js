@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import CustomerReview from "../../Components/CustomerReview/CustomerReview";
 import Footer from "../../Components/Footer/Footer";
 import Navigation from "../../Components/Navigation/Navigation";
 import ProductsCard from "../../Components/ProductsCard/ProductsCard";
+import Banner from "./Banner/Banner";
+import Features from "./Features/Features";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -15,10 +18,15 @@ const Home = () => {
   return (
     <>
       <Navigation />
-      <div className="container mx-auto">
-        <h2 className="text-center">This is Home</h2>
+      <Banner></Banner>
+      <Features></Features>
+      <div className="container bg-gray-100 py-12 mx-auto">
+        <h2 className="text-center font-bold text-4xl my-12">
+          See your product that you need
+        </h2>
         <ProductsCard products={products}></ProductsCard>
       </div>
+      <CustomerReview></CustomerReview>
       <Footer></Footer>
     </>
   );

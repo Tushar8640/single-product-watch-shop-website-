@@ -10,12 +10,12 @@ import {
   signOut,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { set } from "react-hook-form";
 
 firebaseAuthentication();
 const useFirebase = () => {
   const [user, setUser] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [adminLoading, setAdminLoading] = useState(false);
   const [admin, setAdmin] = useState(false);
 
   const auth = getAuth();
@@ -27,7 +27,7 @@ const useFirebase = () => {
       .then((result) => {
         setUser(result.user);
         const user = result.user;
-        sendUsers(user.email, user.displayName, 'PUT');
+        sendUsers(user.email, user.displayName, "PUT");
         const destination = location?.state?.from || "/";
         history.replace(destination);
         // ...
@@ -87,15 +87,20 @@ const useFirebase = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
-        .then(res => res.json())
-        .then(data => setAdmin(data.admin))
-}, [user.email])
+    setAdminLoading(true);
+    fetch(`https://damp-beach-22722.herokuapp.com/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin))
+      .catch((error) => {
+        console.log(error.message);
+      })
+      .finally(() => setAdminLoading(false));
+  }, [user.email]);
 
   // send users to database
   const sendUsers = (email, displayName, method) => {
     const data = { email, displayName };
-    fetch("http://localhost:5000/users", {
+    fetch("https://damp-beach-22722.herokuapp.com/users", {
       method: method,
       headers: {
         "content-type": "application/json",
@@ -114,7 +119,7 @@ const useFirebase = () => {
       }
       setIsLoading(false);
     });
-  }, [auth]);
+  }, []);
 
   return {
     user,
@@ -123,7 +128,8 @@ const useFirebase = () => {
     logOut,
     emailPassLogin,
     isLoading,
-    admin
+    admin,
+    adminLoading,
   };
 };
 
