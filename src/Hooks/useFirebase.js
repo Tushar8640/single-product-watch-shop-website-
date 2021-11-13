@@ -28,7 +28,7 @@ const useFirebase = () => {
         setUser(result.user);
         const user = result.user;
         sendUsers(user.email, user.displayName, "PUT");
-        const destination = location?.state?.from || "/";
+        const destination = location?.state?.from || "/dashboard";
         history.replace(destination);
         // ...
       })
@@ -64,7 +64,7 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const destination = location?.state?.from || "/";
+        const destination = location?.state?.from || "/dashboard";
         history.replace(destination);
         // Signed in
         const user = userCredential.user;
