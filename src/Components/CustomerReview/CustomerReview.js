@@ -10,12 +10,23 @@ SwiperCore.use([Pagination]);
 
 const CustomerReview = () => {
   const [reviews, setReviews] = useState([]);
+  const [reviewLoading, setReviewLoading] = useState(true);
   useEffect(() => {
     fetch("https://damp-beach-22722.herokuapp.com/allreview")
       .then((res) => res.json())
-      .then((data) => setReviews(data));
+      .then((data) => setReviews(data))
+      .finally(() => setReviewLoading(false));
   }, []);
   console.log(reviews);
+  if (reviewLoading) {
+    return (
+      <div className="flex items-center justify-center space-x-2">
+        <div className="w-4 h-4 rounded-full animate-pulse bg-violet-600"></div>
+        <div className="w-4 h-4 rounded-full animate-pulse bg-violet-600"></div>
+        <div className="w-4 h-4 rounded-full animate-pulse bg-violet-600"></div>
+      </div>
+    );
+  }
   return (
     <section className="my-8">
       <div className="container mx-auto flex flex-col items-center pb-6  md:p-10 md:px-12">

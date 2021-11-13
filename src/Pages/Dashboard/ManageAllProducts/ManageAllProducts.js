@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 const ManageAllProducts = () => {
   const [products, setProducts] = useState([]);
 const [isChange,setIsChange] =useState(false)
+const [productLoading, setProductLoading] = useState(true);
   useEffect(() => {
     fetch("https://damp-beach-22722.herokuapp.com/allproducts")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => setProducts(data))
+      .finally(() => setProductLoading(false));
   }, [isChange]);
   console.log(products);
   const handleDelete = (id) => {
@@ -24,6 +26,15 @@ const [isChange,setIsChange] =useState(false)
     }
     console.log(id);
   };
+  if (productLoading) {
+    return (
+      <div className="flex items-center justify-center space-x-2">
+        <div className="w-4 h-4 rounded-full animate-pulse bg-violet-600"></div>
+        <div className="w-4 h-4 rounded-full animate-pulse bg-violet-600"></div>
+        <div className="w-4 h-4 rounded-full animate-pulse bg-violet-600"></div>
+      </div>
+    );
+  }
   return (
     <div className="container mx-auto">
       <h1 className="text-center md:text-4xl text-3xl font-semibold my-10">Manage Products</h1>
