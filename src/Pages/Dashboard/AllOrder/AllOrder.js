@@ -52,7 +52,7 @@ const AllOrder = () => {
   }
   return (
     <div className="container mx-auto">
-      <h1 className="text-center text-3xl md:text-4xl font-semibold my-8">Your Products</h1>
+      <h1 className="text-center text-3xl md:text-4xl font-semibold my-8">Your Orders</h1>
       <div className="grid grid-cols-1 place-items-center md:grid-cols-2 lg:grid-cols-3">
         {products.map((pd) => (
           <div className="w-4/5 my-3 bg-white shadow-sm pb-3">

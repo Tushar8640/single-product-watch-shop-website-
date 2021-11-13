@@ -83,45 +83,43 @@ const Dashboard = () => {
               <hr />
               <div className="flex-1">
                 <ul className="pt-2 pb-4  space-y-1 text-sm">
-                
-                {
-                  !admin && 
-                 <>
-                  <li className="">
-                    <NavLink
-                      to={`${url}`}
-                      className="flex items-center p-2 space-x-3 "
-                    >
-                      Your Order
-                    </NavLink>
-                  </li>
+                  {!admin && (
+                    <>
+                      <li className="">
+                        <NavLink
+                          to={`${url}`}
+                          className="flex items-center p-2 space-x-3 "
+                        >
+                          Your Order
+                        </NavLink>
+                      </li>
 
-                  <li className=" bg-coolGray-100 text-coolGray-900">
-                    <NavLink
-                      activeStyle={{
-                        boxShadow: "1px 5px 10px rgba(20,10,10,0.1)",
-                        borderRadius: "5px",
-                      }}
-                      to={`${url}/review`}
-                      className="flex  items-center p-2 "
-                    >
-                      <span>Review</span>
-                    </NavLink>
-                  </li>
-                  <li className="rounded-sm">
-                    <NavLink
-                      activeStyle={{
-                        boxShadow: "1px 5px 10px rgba(20,10,10,0.1)",
-                        borderRadius: "5px",
-                      }}
-                      to={`${url}/payment`}
-                      className="flex  items-center p-2 "
-                    >
-                      <span>Payment</span>
-                    </NavLink>
-                  </li>
-                  </>
-                  }
+                      <li className=" bg-coolGray-100 text-coolGray-900">
+                        <NavLink
+                          activeStyle={{
+                            boxShadow: "1px 5px 10px rgba(20,10,10,0.1)",
+                            borderRadius: "5px",
+                          }}
+                          to={`${url}/review`}
+                          className="flex  items-center p-2 "
+                        >
+                          <span>Review</span>
+                        </NavLink>
+                      </li>
+                      <li className="rounded-sm">
+                        <NavLink
+                          activeStyle={{
+                            boxShadow: "1px 5px 10px rgba(20,10,10,0.1)",
+                            borderRadius: "5px",
+                          }}
+                          to={`${url}/payment`}
+                          className="flex  items-center p-2 "
+                        >
+                          <span>Payment</span>
+                        </NavLink>
+                      </li>
+                    </>
+                  )}
                   {admin && (
                     <>
                       <li className="rounded-sm">
@@ -225,7 +223,11 @@ const Dashboard = () => {
           <div className="my-14">
             <Switch>
               <Route exact path={path}>
-                <AllOrder></AllOrder>
+                {!admin ? (
+                  <AllOrder></AllOrder>
+                ) : (
+                  <ManageAllOrder></ManageAllOrder>
+                )}
               </Route>
               <Route exact path={`${path}/review`}>
                 <Review></Review>
