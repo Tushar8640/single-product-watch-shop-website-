@@ -19,7 +19,7 @@ const Review = () => {
     e.preventDefault();
     const name = user?.displayName;
     const data = { stars, reviews, name };
-    
+
     fetch("https://damp-beach-22722.herokuapp.com/postreview", {
       method: "POST",
       crossDomain: true,
@@ -47,6 +47,7 @@ const Review = () => {
         <div className="w-full">
           <form onSubmit={handleOnSubmit} className="flex flex-col ">
             <input
+              step="any"
               placeholder="Your Ratings (0-5)"
               className="p-4 rounded-md mb-3"
               type="number"
@@ -60,6 +61,7 @@ const Review = () => {
               placeholder="Message..."
               className="p-4 rounded-md resize-none"
               spellcheck="false"
+
             ></textarea>
             <button
               type="submit"
