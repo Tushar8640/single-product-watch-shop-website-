@@ -20,12 +20,12 @@ const ProductsCard = ({products}) => {
                   {pd.name}
                 </h2>
                 <p className="text-coolGray-800">{pd.about}</p>
-                <p className="text-coolGray-800">{pd.price}</p>
+                <p className="text-coolGray-800">Price : ${pd.price}</p>
               </div>
               <Link to={`singleproducts/${pd._id}`}>
               <button
                 type="button"
-                className="flex items-center justify-center w-full font-semibold btn-regular hover:bg-blue-500 transition duration-200 focus:bg-blue-600 mt-3"
+                className="flex items-center justify-center w-full font-semibold btn-regular hover:bg-blue-500 transition duration-200 focus:bg-blue-600 mt-2"
               >
                 Buy Item
               </button>

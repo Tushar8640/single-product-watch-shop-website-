@@ -4,7 +4,7 @@ const Features = () => {
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="grid gap-5  row-gap-10 lg:grid-cols-2">
-      <div className="flex justify-center">
+        <div className="flex justify-center">
           <img
             className="object-cover w-4/6 md:w-3/6 lg:w-8/12   rounded"
             src="https://i.ibb.co/nMz1YyR/pngegg.png"
@@ -13,24 +13,20 @@ const Features = () => {
         </div>
         <div className="flex flex-col justify-center">
           <div className="max-w-xl mb-6">
-            <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-              The quick, brown fox
+            <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-blue-500 sm:text-4xl sm:leading-none">
+              It's the ultimate device
               <br className="hidden md:block" />
-              jumps over{" "}
-              <span className="relative px-1">
-                <div className="absolute inset-x-0 bottom-0 h-3 transform -skew-x-12 bg-teal-accent-400" />
-                <span className="relative inline-block text-deep-purple-accent-400">
-                  a lazy dog
-                </span>
-              </span>
+              for a healthy life.
+            
             </h2>
             <p className="text-base text-gray-700 md:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae. explicabo.
+              Apple Watch Series 7, Apple Watch SE, and Apple Watch Series 3
+              have a water resistance rating of 50 meters under ISO standard
+              22810:2010. This means that they may be used for shallow-water
+              activities like swimming in a pool or ocean
             </p>
           </div>
-          <p className="mb-4 text-sm font-bold tracking-widest uppercase">
+          <p className="mb-4 text-sm text-blue-400 font-bold tracking-widest uppercase">
             Features
           </p>
           <div className="grid space-y-3 sm:gap-2 sm:grid-cols-2 sm:space-y-0">
@@ -51,7 +47,7 @@ const Features = () => {
                     />
                   </svg>
                 </span>
-                A slice of heaven
+                Largest Display
               </li>
               <li className="flex">
                 <span className="mr-1">
@@ -69,7 +65,7 @@ const Features = () => {
                     />
                   </svg>
                 </span>
-                Disrupt inspire
+                Improved Durability
               </li>
               <li className="flex">
                 <span className="mr-1">
@@ -87,7 +83,7 @@ const Features = () => {
                     />
                   </svg>
                 </span>
-                Preliminary thinking
+                Fast Charging
               </li>
             </ul>
             <ul className="space-y-3">
@@ -107,7 +103,7 @@ const Features = () => {
                     />
                   </svg>
                 </span>
-                Flipboard curmudgeon
+                Health and Wellness
               </li>
               <li className="flex">
                 <span className="mr-1">
@@ -125,7 +121,7 @@ const Features = () => {
                     />
                   </svg>
                 </span>
-                Storage shed
+                Water proof
               </li>
               <li className="flex">
                 <span className="mr-1">
@@ -143,12 +139,11 @@ const Features = () => {
                     />
                   </svg>
                 </span>
-                Satoshi Nakamoto
+                Longtime warrenty
               </li>
             </ul>
           </div>
         </div>
-       
       </div>
     </div>
   );

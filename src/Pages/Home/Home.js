@@ -21,8 +21,8 @@ const Home = () => {
       <Banner></Banner>
       <Features></Features>
       <div className="container bg-gray-100 py-12 mx-auto">
-        <h2 className="text-center font-bold text-4xl my-12">
-          See your product that you need
+        <h2 className="text-center text-blue-500 font-bold text-4xl my-12">
+          See  product that you need
         </h2>
         <ProductsCard products={products}></ProductsCard>
       </div>

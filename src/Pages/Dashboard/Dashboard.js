@@ -83,6 +83,10 @@ const Dashboard = () => {
               <hr />
               <div className="flex-1">
                 <ul className="pt-2 pb-4  space-y-1 text-sm">
+                
+                {
+                  !admin && 
+                 <>
                   <li className="">
                     <NavLink
                       to={`${url}`}
@@ -116,6 +120,8 @@ const Dashboard = () => {
                       <span>Payment</span>
                     </NavLink>
                   </li>
+                  </>
+                  }
                   {admin && (
                     <>
                       <li className="rounded-sm">

@@ -84,19 +84,19 @@ export default AddProducts;
 
 
 // https://i.ibb.co/Vm0Dd7p/watch-11.jpg
-// https://i.ibb.co/1rgy8JK/watch-12.jpg
-// https://i.ibb.co/gVZb6Tg/watch-13.jpg
+// 
+// 
 // https://i.ibb.co/4NV3y5D/watch-14.jpg
-// https://i.ibb.co/YfGFYQc/watch-15.jpg
-// https://i.ibb.co/s9t3rtT/watch-16.jpg
-// https://i.ibb.co/h7Jsgsp/watch-1.jpg
+// 
+// 
+// 
 // https://i.ibb.co/WPMfJPj/watch-1.png
-// https://i.ibb.co/ZMQ8PrH/watch-2.jpg
-// https://i.ibb.co/ZWYzQ0S/watch-2.png
-// https://i.ibb.co/mD4BztM/watch-3.jpg
-// https://i.ibb.co/hBSgYPW/watch-3.png
+// 
+// 
+// 
+// 
 // https://i.ibb.co/M19skfg/watch-4.jpg
-// https://i.ibb.co/L8JXpDn/watch-5.jpg
+// 
 // https://i.ibb.co/2vbwftG/watch-6.jpg
 // https://i.ibb.co/KxS0FQZ/watch-7.jpg
 // https://i.ibb.co/FgtRCTV/watch-8.jpg

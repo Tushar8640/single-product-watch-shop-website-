@@ -79,7 +79,13 @@ const ManageAllOrder = () => {
                 {pd.productName}
               </h4>
               <div>
-                  <h4 className="text-green-600 mt-1 py-1 rounded  ">
+                  <h4 className=" mt-1 py-1 rounded  ">
+                   Ordered by  {pd.userName}
+                  </h4>
+                  <h4 className=" mt-1 py-1 rounded  ">
+                   From {pd.address}
+                  </h4>
+                  <h4 className="text-green-600 mt-1 py-1 rounded ">
                    Order {pd.status}
                   </h4>
                 </div>
@@ -97,7 +103,7 @@ const ManageAllOrder = () => {
                       onBlur={handleOnblur}
                       className="form-select focus:border-blue-500 border-2 py-1 ml-2 px-5 block  mt-1"
                     >
-                      <option>approve</option>
+                      <option>approved</option>
                       <option>shipped</option>
                     </select>
                   </label>

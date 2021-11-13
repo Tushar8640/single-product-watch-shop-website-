@@ -12,17 +12,15 @@ const Banner = () => {
               </p>
             </div>
             <h2 className="font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none max-w-lg mb-6">
-              Everything you
+              Monitoring Your 
               <br className="hidden md:block" />
-              can imagine{" "}
-              <span className="inline-block text-deep-purple-accent-400">
-                is real
+              Healthly Enjoyable 
+              <span className="inline-block ml-2 text-blue-500">
+                 Daily Life
               </span>
             </h2>
             <p className="text-gray-700 text-base md:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae. explicabo.
+              Introducing New and Smartest Watch to help you stay always active,healthy,and confident.
             </p>
             <button className="btn-regular hover:bg-blue-500 transition duration-200 focus:bg-blue-600 mt-3">Explore More</button>
           </div>
