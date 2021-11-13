@@ -1,9 +1,13 @@
+
+
 const firebaseConfig = {
-    apiKey: "AIzaSyDQbWD0VaJGqb7LAVT1hoWV97K-3ijL9e8",
-    authDomain: "smart-watch-shop.firebaseapp.com",
-    projectId: "smart-watch-shop",
-    storageBucket: "smart-watch-shop.appspot.com",
-    messagingSenderId: "993905097788",
-    appId: "1:993905097788:web:8e24df31fbe10aa738d739"
-  };
-  export default firebaseConfig;
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+};
+export default firebaseConfig;
+
+

@@ -48,7 +48,7 @@ const ManageAllOrder = () => {
   };
   const handleApprove = (id) => {
     if (approveValue !== null) {
-      fetch(`http://localhost:5000/approveorder/${id}`, {
+      fetch(`https://damp-beach-22722.herokuapp.com/approveorder/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
