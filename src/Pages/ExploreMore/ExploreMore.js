@@ -7,6 +7,8 @@ const ExploreMore = () => {
   const [products, setProducts] = useState([]);
   const [isproductLoading, setIsProductLoading] = useState(true);
 
+
+  // get all products 
   useEffect(() => {
     setIsProductLoading(true)
     fetch("https://damp-beach-22722.herokuapp.com/allproducts")

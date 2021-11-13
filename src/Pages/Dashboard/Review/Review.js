@@ -20,6 +20,7 @@ const Review = () => {
     const name = user?.displayName;
     const data = { stars, reviews, name };
 
+    // users review 
     fetch("https://damp-beach-22722.herokuapp.com/postreview", {
       method: "POST",
       crossDomain: true,

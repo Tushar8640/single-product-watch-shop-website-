@@ -8,6 +8,7 @@ const ManageAllOrder = () => {
   const [isLoader, setIsLoader] = useState(false);
   const [approveValue, setApproveValue] = useState(null);
 
+  // get all order 
   useEffect(() => {
     setIsLoader(true);
     fetch("https://damp-beach-22722.herokuapp.com/allorder")
@@ -46,6 +47,8 @@ const ManageAllOrder = () => {
     const status = e.target.value;
     setApproveValue({ status });
   };
+
+  // approve orders 
   const handleApprove = (id) => {
     if (approveValue !== null) {
       fetch(`https://damp-beach-22722.herokuapp.com/approveorder/${id}`, {

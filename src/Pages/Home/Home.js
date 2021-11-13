@@ -10,6 +10,8 @@ const Home = () => {
   const [products, setProducts] = useState([]);
   const [exploreLoading, setExploreLoading] = useState(true);
 
+
+  // get first six products 
   useEffect(() => {
     fetch("https://damp-beach-22722.herokuapp.com/homeproducts")
       .then((res) => res.json())

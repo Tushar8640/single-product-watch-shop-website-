@@ -4,6 +4,8 @@ const ManageAllProducts = () => {
   const [products, setProducts] = useState([]);
 const [isChange,setIsChange] =useState(false)
 const [productLoading, setProductLoading] = useState(true);
+
+// get all products
   useEffect(() => {
     fetch("https://damp-beach-22722.herokuapp.com/allproducts")
       .then((res) => res.json())
@@ -11,6 +13,8 @@ const [productLoading, setProductLoading] = useState(true);
       .finally(() => setProductLoading(false));
   }, [isChange]);
   console.log(products);
+  
+  // delete products 
   const handleDelete = (id) => {
     const confirm = window.confirm("Do you want to delete ?");
     if (confirm) {
