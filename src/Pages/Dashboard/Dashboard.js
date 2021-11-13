@@ -223,10 +223,10 @@ const Dashboard = () => {
           <div className="my-14">
             <Switch>
               <Route exact path={path}>
-                {!admin ? (
-                  <AllOrder></AllOrder>
-                ) : (
+                {admin ? (
                   <ManageAllOrder></ManageAllOrder>
+                ) : (
+                  <AllOrder></AllOrder>
                 )}
               </Route>
               <Route exact path={`${path}/review`}>

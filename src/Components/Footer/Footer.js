@@ -195,8 +195,7 @@ const Footer = () => {
               </button>
             </form>
             <p className="mt-4 text-sm text-gray-800">
-              Bacon ipsum dolor amet short ribs pig sausage prosciuto chicken
-              spare ribs salami.
+              Subscribe us for nofify our exclusive offers and new products
             </p>
           </div>
         </div>
