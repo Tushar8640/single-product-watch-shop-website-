@@ -36,14 +36,16 @@ const Navigation = () => {
                 Explore More
               </Link>
             </li>
-            <li>
-              <Link
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                to="/dashboard"
-              >
-                Dashboard
-              </Link>
-            </li>
+            {user.email && (
+              <li>
+                <Link
+                  className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  to="/dashboard"
+                >
+                  Dashboard
+                </Link>
+              </li>
+            )}
             {!user.email && (
               <li>
                 <Link
