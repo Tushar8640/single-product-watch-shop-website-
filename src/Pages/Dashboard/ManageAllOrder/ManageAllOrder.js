@@ -67,9 +67,18 @@ const ManageAllOrder = () => {
 
     console.log(id, approveValue);
   };
+  if (isLoader) {
+    return (
+      <div className="flex justify-center">
+        <div className="w-16 mt-12   h-16 border-blue-600 border-4 border-dashed rounded-full animate-spin border-violet-600"></div>
+      </div>
+    );
+  }
   return (
     <div className="container mx-auto">
-      <h1 className="text-center md:text-4xl text-3xl font-semibold">Manage All order</h1>
+      <h1 className="text-center md:text-4xl text-3xl font-semibold">
+        Manage All order
+      </h1>
       <div className="grid grid-cols-1 place-items-center md:grid-cols-2 lg:grid-cols-3">
         {products.map((pd) => (
           <div className="w-5/6 my-3 bg-white shadow-sm pb-3">
@@ -79,18 +88,15 @@ const ManageAllOrder = () => {
                 {pd.productName}
               </h4>
               <div>
-                  <h4 className=" mt-1 py-1 rounded  ">
-                   Ordered by  {pd.userName}
-                  </h4>
-                  <h4 className=" mt-1 py-1 rounded  ">
-                   From {pd.address}
-                  </h4>
-                  <h4 className="text-green-600 mt-1 py-1 rounded ">
-                   Order {pd.status}
-                  </h4>
-                </div>
+                <h4 className=" mt-1 py-1 rounded  ">
+                  Ordered by {pd.userName}
+                </h4>
+                <h4 className=" mt-1 py-1 rounded  ">From {pd.address}</h4>
+                <h4 className="text-green-600 mt-1 py-1 rounded ">
+                  Order {pd.status}
+                </h4>
+              </div>
               <div className="flex align-middle my-1 justify-between">
-               
                 <div className="flex flex-col md:flex-row">
                   <button
                     onClick={() => handleApprove(pd._id)}

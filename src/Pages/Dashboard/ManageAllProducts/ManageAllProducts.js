@@ -28,11 +28,9 @@ const [productLoading, setProductLoading] = useState(true);
   };
   if (productLoading) {
     return (
-      <div className="flex items-center justify-center space-x-2">
-        <div className="w-4 h-4 rounded-full animate-pulse bg-violet-600"></div>
-        <div className="w-4 h-4 rounded-full animate-pulse bg-violet-600"></div>
-        <div className="w-4 h-4 rounded-full animate-pulse bg-violet-600"></div>
-      </div>
+      <div className="flex justify-center">
+      <div className="w-16 mt-12   h-16 border-blue-600 border-4 border-dashed rounded-full animate-spin border-violet-600"></div>
+    </div>
     );
   }
   return (
